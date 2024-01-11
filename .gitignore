@@ -1,1 +1,6 @@
 .idea
+front-end/node_modules
+front-end/.env
+engine/vendor
+engine/.env
+engine/node_modules
