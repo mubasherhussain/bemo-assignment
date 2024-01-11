@@ -55,7 +55,7 @@ export default {
       </div>
       <div @click="$emit('delete', columnId)" class="delete-btn">X</div>
     </div>
-    <draggable class="card" v-bind="dragOptions" @change="changeTrigger" :value="cards">
+    <draggable :emptyInsertThreshold="200" class="card" v-bind="dragOptions" @change="changeTrigger" :value="cards">
       <transition-group type="transition" name="flip-list">
         <div @click="$emit('showCardModal', card, columnIndex)" class="card-header" v-for="card in cards" :key="card.id + '-' + columnId">
           {{card.title}}
@@ -109,6 +109,9 @@ export default {
       border: 1px solid #ccc;
       border-radius: 4px;
       background-color: #fff;
+    }
+    .group{
+      min-height: 10px;
     }
   }
   .add-card{

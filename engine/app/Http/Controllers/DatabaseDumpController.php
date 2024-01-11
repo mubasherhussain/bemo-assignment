@@ -10,9 +10,9 @@ class DatabaseDumpController extends Controller
     {
         MySql::create()
             ->setDumpBinaryPath('/Applications/XAMPP/xamppfiles/bin')
-            ->setDbName('assignment_1')
-            ->setUserName('root')
-            ->setPassword('')
+            ->setDbName(env('DB_DATABASE'))
+            ->setUserName(env('DB_USERNAME'))
+            ->setPassword(env('DB_PASSWORD'))
             ->dumpToFile('dump.sql');
         return response()->download('dump.sql');
     }
